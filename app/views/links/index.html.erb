@@ -1,0 +1,25 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
+	<div class="max-w-5xl mx-auto">
+		<div class="mb-6 flex items-center justify-between">
+			<h1 class="text-3xl font-semibold text-white">Meus Links</h1>
+			<%= link_to "Novo Link", new_link_path, class: "px-4 py-2 rounded-lg bg-white/20 text-white hover:bg-white/30 transition" %>
+		</div>
+
+		<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6">
+			<ul class="divide-y divide-white/10">
+				<% @links.each do |link| %>
+					<li class="py-4 flex items-center justify-between">
+						<div class="text-white/90">
+							<div class="font-medium truncate"><%= link.original_url %></div>
+							<div class="text-sm text-white/70">Encurtado: <%= short_path(link.short_code) %> • Cliques: <%= link.clicks_count %></div>
+						</div>
+						<div class="flex items-center gap-3">
+							<%= link_to "Abrir", short_path(link.short_code), class: "px-3 py-1.5 rounded-md bg-white/10 text-white hover:bg-white/20 transition" %>
+							<%= link_to "Dashboard", dashboard_link_path(link), class: "px-3 py-1.5 rounded-md bg-indigo-500/80 text-white hover:bg-indigo-500 transition" %>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
