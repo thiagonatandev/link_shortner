@@ -1,33 +1,33 @@
 <div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
 	<div class="max-w-6xl mx-auto">
 		<div class="mb-6 flex items-center justify-between">
-			<h1 class="text-3xl font-semibold text-white">Dashboard do Link</h1>
+			<h1 class="text-3xl font-semibold text-white">Link Dashboard</h1>
 			<%= link_to "Voltar", links_path, class: "px-4 py-2 rounded-lg bg-white/20 text-white hover:bg-white/30 transition" %>
 		</div>
 
 		<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6 mb-6 text-white/90">
 			<p class="mb-2"><strong>Original:</strong> <%= @link.original_url %></p>
 			<p><strong>Encurtado:</strong> <%= short_path(@link.short_code) %></p>
-			<h2 class="text-xl mt-4">Total de Cliques: <span class="font-semibold"><%= @total_clicks %></span></h2>
+			<h2 class="text-xl mt-4">Total of Clicks: <span class="font-semibold"><%= @total_clicks %></span></h2>
 		</div>
 
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 			<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6">
-				<h3 class="text-white text-lg mb-4">Cliques por País</h3>
+				<h3 class="text-white text-lg mb-4">Clicks by Country</h3>
 				<div class="bg-white/5 rounded-lg p-2">
 					<%= pie_chart @clicks_by_country, donut: true, height: "300px" %>
 				</div>
 			</div>
 
 			<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6">
-				<h3 class="text-white text-lg mb-4">Cliques por Navegador</h3>
+				<h3 class="text-white text-lg mb-4">Clicks by Browser</h3>
 				<div class="bg-white/5 rounded-lg p-2">
 					<%= pie_chart @clicks_by_browser, donut: true, height: "300px" %>
 				</div>
 			</div>
 
 			<div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6">
-				<h3 class="text-white text-lg mb-4">Cliques por Sistema Operacional</h3>
+				<h3 class="text-white text-lg mb-4">Clicks by Operational System</h3>
 				<div class="bg-white/5 rounded-lg p-2">
 					<%= pie_chart @clicks_by_os, donut: true, height: "300px" %>
 				</div>
